@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Project | Project Explorer</title>
+</head>
+<body>
+     <!-- ! Header -->
+     <header>
+        <h1>Project Explorer</h1>
+        <h2>One Stop Database for Academic Projects</h2>
+    </header>
+
+    <!-- ! Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Projects</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="createproject.html">Submit</a></li>
+        </ul>
+    </nav>
+
+    <!-- ! Main Division -->
+    <main>
+
+        <!-- ! Project Details -->
+        <section>
+            <h4>Project 1</h4>
+            <ul>
+                <li>Created by: Jane Doe</li>
+                <li>Date Created: 00/00/0000</li>
+                <li>Last Updated: 01/01/0001</li>
+            </ul>
+        </section>
+
+        <!-- ! Edit Project -->
+        <section>
+            <form name="editProject">
+                <label for="name">Project Name:</label> <br>
+            <input type="text" name="name">
+            <br>
+
+            <label for="abstract">Project Abstract:</label> <br>
+            <textarea name="abstract"></textarea>
+            <br>
+
+            <label for="authors">Authors:</label> <br>
+            <input type="text" name="authors">
+            <br>
+            
+            <label for="tags">Tag(s):</label> <br>
+            <input type="text" name="tags">
+            <br>
+
+            <label for="projectFile">Upload File:</label> <br>
+            <input type="file" name="projectFile">
+            <br>
+
+            <input type="submit">
+            </form>
+        </section>
+    </main>
+    
+</body>
+</html>
