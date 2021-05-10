@@ -50,7 +50,7 @@ class Users extends DataModel {
     validate(obj) {
         this.errors.splice(0, this.errors.length);
         for (let property in obj) {
-            if (obj[property] === null) {
+            if (obj[property] === undefined) {
                 this.errors.push(`${property} should not be empty`);
             }
         }
