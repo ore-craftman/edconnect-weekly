@@ -49,10 +49,30 @@ class Users extends DataModel {
 
     validate(obj) {
         this.errors.splice(0, this.errors.length);
-        for (let property in obj) {
-            if (obj[property] === undefined) {
-                this.errors.push(`${property} should not be empty`);
-            }
+        this.errors.splice(0, this.errors.length);
+        if (!obj.hasOwnProperty("id")) {
+            this.errors.push("id should not be empty");
+        }
+        if (!obj.hasOwnProperty("firstname")) {
+            this.errors.push("firstname should not be empty");
+        }
+        if (!obj.hasOwnProperty("lastname")) {
+            this.errors.push("lastname should not be empty");
+        }
+        if (!obj.hasOwnProperty("email")) {
+            this.errors.push("email should not be empty");
+        }
+        if (!obj.hasOwnProperty("password")) {
+            this.errors.push("password should not be empty");
+        }
+        if (!obj.hasOwnProperty("matricNumber")) {
+            this.errors.push("matricNumber should not be empty");
+        }
+        if (!obj.hasOwnProperty("program")) {
+            this.errors.push("program should not be empty");
+        }
+        if (!obj.hasOwnProperty("graduationYear")) {
+            this.errors.push("graduationYear should not be empty");
         }
 
         this.data.forEach(user => {
