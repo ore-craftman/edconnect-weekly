@@ -9,7 +9,13 @@ class DataModel {
     }
 
     getById(id) {
-
+        let resultingObj = null;
+        this.data.forEach(obj => {
+            if (obj.id === id) {
+                resultingObj = obj;
+            }
+        })
+        return resultingObj;
     }
 
     save(obj) {
@@ -21,11 +27,31 @@ class DataModel {
     }
 
     update(obj, id) {
-
+        let response = false;
+        this.data.forEach(user => {
+            if (user.id === id) {
+                user.firstname = obj.firstname;
+                user.lastname = obj.lastname;
+                user.email = obj.email;
+                user.password = obj.password;
+                user.matricNumber = obj.matricNumber;
+                user.program = obj.program;
+                user.graduationYear = obj.graduationYear;
+                response = true;
+            }
+        })
+        return response;
     }
 
     delete(id) {
-
+        let response = false;
+        for (let Obj of this.data) {
+            if (Obj.id == id) {
+                this.data.splice(this.data.indexOf(Obj), 1)
+                response = true;
+            }
+        }
+        return response;
     }
 
     // this method will be overriden in the sub classes
