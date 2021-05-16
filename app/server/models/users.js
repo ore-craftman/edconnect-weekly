@@ -48,8 +48,8 @@ class Users extends DataModel {
     }
 
     validate(obj) {
-        this.errors.splice(0, this.errors.length);
-        this.errors.splice(0, this.errors.length);
+        // this.errors.splice(0, this.errors.length);
+        this.errors = []
         if (!obj.hasOwnProperty("id")) {
             this.errors.push("id should not be empty");
         }
