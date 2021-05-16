@@ -78,7 +78,8 @@ class Users extends DataModel {
         this.data.forEach(user => {
             if (user.email === obj.email) {
                 this.errors.push("A user with specified email address already exists");
-            } else if (user.matricNumber === obj.matricNumber) {
+            }
+            if (user.matricNumber === obj.matricNumber) {
                 this.errors.push("A user with specified matric number already exists");
             }
         })
