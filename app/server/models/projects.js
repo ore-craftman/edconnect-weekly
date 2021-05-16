@@ -20,6 +20,26 @@ class Projects extends DataModel {
                 this.errors.push(`${key} should not be empty.`)
             }
         }
+
+        if (!obj.hasOwnProperty("id")) {
+            this.errors.push("id should not be empty")
+        }
+        if (!obj.hasOwnProperty("name")) {
+            this.errors.push("name should not be empty")
+        }
+        if (!obj.hasOwnProperty("abstract")) {
+            this.errors.push("abstract should not be empty")
+        }
+        if (!obj.hasOwnProperty("authors")) {
+            this.errors.push("authors should not be empty")
+        }
+        if (!obj.hasOwnProperty("tags")) {
+            this.errors.push("tags should not be empty")
+        }
+        if (!obj.hasOwnProperty("createdBy")) {
+            this.errors.push("createdBy should not be empty")
+        }
+
         if (!Array.isArray(obj.authors)) {
             this.errors.push("Authors should be an array");
         }
