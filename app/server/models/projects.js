@@ -13,7 +13,8 @@ class Project {
 
 class Projects extends DataModel {
     validate(obj) {
-        this.errors.splice(0, this.errors.length)
+        // this.errors.splice(0, this.errors.length)
+        this.errors = []
         if (!Array.isArray(obj.authors)) {
             this.errors.push("Authors should be an array");
         }
