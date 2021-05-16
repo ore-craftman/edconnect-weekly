@@ -15,28 +15,22 @@ class Projects extends DataModel {
     validate(obj) {
         // this.errors.splice(0, this.errors.length)
         this.errors = []
-        for (const key in obj) {
-            if (obj[key] === '' || obj[key] === undefined || obj[key] === null) {
-                this.errors.push(`${key} should not be empty.`)
-            }
-        }
-
-        if (!obj.hasOwnProperty("id")) {
+        if (!obj.hasOwnProperty("id") || obj.id === '' || obj.id === undefined || obj.id === null) {
             this.errors.push("id should not be empty")
         }
-        if (!obj.hasOwnProperty("name")) {
+        if (!obj.hasOwnProperty("name") || obj.name === '' || obj.name === undefined || obj.name === null) {
             this.errors.push("name should not be empty")
         }
-        if (!obj.hasOwnProperty("abstract")) {
+        if (!obj.hasOwnProperty("abstract") || obj.abstract === '' || obj.abstract === undefined || obj.abstract === null) {
             this.errors.push("abstract should not be empty")
         }
-        if (!obj.hasOwnProperty("authors")) {
+        if (!obj.hasOwnProperty("authors") || obj.abstract === '' || obj.abstract === undefined || obj.abstract === null) {
             this.errors.push("authors should not be empty")
         }
-        if (!obj.hasOwnProperty("tags")) {
+        if (!obj.hasOwnProperty("tags") || obj.tags === '' || obj.tags === undefined || obj.tags === null) {
             this.errors.push("tags should not be empty")
         }
-        if (!obj.hasOwnProperty("createdBy")) {
+        if (!obj.hasOwnProperty("createdBy") || obj.createdBy === '' || obj.createdBy === undefined || obj.createdBy === null) {
             this.errors.push("createdBy should not be empty")
         }
 
