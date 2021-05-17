@@ -22,9 +22,15 @@ class Projects extends DataModel {
             this.errors.push("Tags should be an array");
         }
 
-        for (const key in obj) {
-            if (obj[key] === '' || obj[key] === undefined || obj[key] === null) {
-                this.errors.push(`${key} should not be empty.`)
+        for (const property in obj) {
+            if (["authors", "tags"].includes(property)) {
+                if (!Array.isArray(obj[property])) {
+                    this.errors.push(`${property} should be an array`)
+                }
+            } else {
+                if (obj[property] === "") {
+                    this.errors.push(`${property} should not be empty`)
+                }
             }
         }
 
