@@ -30,13 +30,7 @@ class DataModel {
         let response = false;
         this.data.forEach(user => {
             if (user.id === id) {
-                user.firstname = obj.firstname;
-                user.lastname = obj.lastname;
-                user.email = obj.email;
-                user.password = obj.password;
-                user.matricNumber = obj.matricNumber;
-                user.program = obj.program;
-                user.graduationYear = obj.graduationYear;
+                user.id = obj;
                 response = true;
             }
         })
