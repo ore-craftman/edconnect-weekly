@@ -28,9 +28,24 @@ class DataModel {
 
     update(obj, id) {
         let response = false;
-        this.data.forEach(user => {
-            if (user.id === id) {
-                user.id = obj;
+        this.data.forEach(property => {
+            if (property.id === id) {
+                // user.id = obj;
+                if (obj.hasOwnProperty("name") || obj.hasOwnProperty("abstract") || obj.hasOwnProperty("authors") || obj.hasOwnProperty("tags") || obj.hasOwnProperty("createdBy")) {
+                    property.name = obj.name;
+                    property.abstract = obj.abstract;
+                    property.authors = obj.authors;
+                    property.tags = obj.tags;
+                    property.createdBy = obj.createdBy;
+                }
+
+                property.firstname = obj.firstname;
+                property.lastname = obj.lastname;
+                property.email = obj.email;
+                property.password = obj.password;
+                property.matricNumber = obj.matricNumber;
+                property.program = obj.program;
+                property.graduationYear = obj.graduationYear;
                 response = true;
             }
         })
