@@ -140,7 +140,7 @@ const createProject = () => {
         projectDataObj.authors = authorsArr;
         projectDataObj.tags = tagsArr;
 
-        fetch(" /api/projects", {
+        fetch("/api/projects", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -290,7 +290,7 @@ const updateProjectList = () => {
             }
         })
         .then(data => {
-
+            console.log(data)
             for (let i = 0; i < 4; i++) {
                 let project = data[i];
 
