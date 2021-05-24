@@ -227,7 +227,7 @@ window.onload = () => {
         console.log("User Logged Out State")
 
         if (window.location.href.includes("createproject.html")) {
-            location.assign("index.html")
+            location.assign("login.html")
         }
     }
 
