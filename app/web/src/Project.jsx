@@ -48,7 +48,7 @@ const Project = () => {
       <>
         {projectData && (
           <section className="py-5">
-            <h4> {projectData.name} </h4>
+            <h4 id="project_name"> {projectData.name} </h4>
 
             <div className="row bg-light p-3 ">
               <section className="col">
