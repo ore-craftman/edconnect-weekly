@@ -123,7 +123,7 @@ const Signup = () => {
               })}
             </div>
           )}
-          <Form onSubmit={signupHandler}>
+          <Form onSubmit={signupHandler} id="signupForm">
             <Form.Row>
               <Col>
                 <Form.Group controlId="firstName">

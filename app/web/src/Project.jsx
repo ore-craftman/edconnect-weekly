@@ -20,28 +20,29 @@ const Project = () => {
       })
       .then((data) => {
         setProjectData(data);
-
-        let creatorsId = data.createdBy;
-        fetch(`/api/users/${creatorsId}`)
-          .then((response) => {
-            if (response.status === 200) {
-              return response.json();
-            } else {
-              throw new Error(`Response.status != 200 but: ${response.status}`);
-            }
-          })
-          .then((creatorsData) => {
-            setCreator(`${creatorsData.firstname} ${creatorsData.lastname}`);
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
       })
       .catch((err) => {
         console.error(err.message);
       });
   }, [id]);
 
+  if (projectData) {
+    let creatorsId = projectData.createdBy;
+    fetch(`/api/users/${creatorsId}`)
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          throw new Error(`Response.status != 200 but: ${response.status}`);
+        }
+      })
+      .then((creatorsData) => {
+        setCreator(`${creatorsData.firstname} ${creatorsData.lastname}`);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
   return (
     <Layout>
       <>
@@ -53,7 +54,9 @@ const Project = () => {
               <section className="col">
                 <ul>
                   <li className="list-unstyled">Created By</li>
-                  <li className="list-unstyled"> {creator} </li>
+                  <li className="list-unstyled" id="project_author">
+                    {creator}
+                  </li>
                 </ul>
               </section>
               <section className="col">
@@ -78,7 +81,7 @@ const Project = () => {
             <section className="row my-4">
               <div className="col">
                 <h5 className="py-3 border-bottom">Project Abstract</h5>
-                <p> {projectData.abstract} </p>
+                <p id="project_abstract"> {projectData.abstract} </p>
 
                 <h5 className="py-3">Comments</h5>
                 <form>
@@ -104,7 +107,10 @@ const Project = () => {
                       <strong>Author(s)</strong>
                     </div>
                     <div className="card-body p-0">
-                      <ul className="list-group list-group-flush">
+                      <ul
+                        className="list-group list-group-flush"
+                        id="project_authors"
+                      >
                         {projectData.authors.map((author) => {
                           return (
                             <li key={author} className="list-group-item">
@@ -114,7 +120,7 @@ const Project = () => {
                         })}
                       </ul>
                     </div>
-                    <div className="card-footer">
+                    <div className="card-footer" id="project_tags">
                       {projectData.tags.map((tag) => {
                         return (
                           <p key={tag} className="text-primary">

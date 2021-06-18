@@ -88,7 +88,7 @@ const CreateProject = () => {
               </div>
             )}
 
-            <Form onSubmit={createProjectHandler}>
+            <Form onSubmit={createProjectHandler} id="createProjectForm">
               <Form.Group controlId="name">
                 <Form.Label>Project Name:</Form.Label>
                 <Form.Control

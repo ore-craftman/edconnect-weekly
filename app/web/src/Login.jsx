@@ -62,7 +62,7 @@ const Login = () => {
 
           <h1 className="my-4">Login</h1>
 
-          <Form onSubmit={loginHandler}>
+          <Form onSubmit={loginHandler} id="loginForm">
             <Form.Group controlId="email">
               <Form.Label>Email Address:</Form.Label>
               <Form.Control
