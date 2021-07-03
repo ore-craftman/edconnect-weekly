@@ -14,9 +14,9 @@ const Signup = ({ programs, gradYears, error, userInstance }) => {
 
   const handleFormChange = (event) => {
     const { name, value } = event.target;
-    if (name === "firstname") {
+    if (name === "firstName") {
       setFirstName(value);
-    } else if (name === "lastname") {
+    } else if (name === "lastName") {
       setLastName(value);
     } else if (name === "email") {
       setEmail(value);
@@ -49,7 +49,7 @@ const Signup = ({ programs, gradYears, error, userInstance }) => {
                   <Form.Label>First Name:</Form.Label>
                   <Form.Control
                     type="text"
-                    name="firstname"
+                    name="firstName"
                     value={firstName}
                     onChange={handleFormChange}
                     placeholder="First Name"
@@ -62,7 +62,7 @@ const Signup = ({ programs, gradYears, error, userInstance }) => {
                   <Form.Label>Last Name:</Form.Label>
                   <Form.Control
                     type="text"
-                    name="lastname"
+                    name="lastName"
                     value={lastName}
                     onChange={handleFormChange}
                     placeholder="Last Name"

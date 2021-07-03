@@ -19,7 +19,16 @@ router.get("/signup", (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
-  const [status, userResponse] = userService.create(req.body);
+  let userDataObj = {
+    firstname: req.body.firstName,
+    lastname: req.body.lastName,
+    email: req.body.email,
+    password: req.body.password,
+    matricNumber: req.body.matricNumber,
+    program: req.body.program,
+    graduationYear: req.body.graduationYear,
+  };
+  const [status, userResponse] = userService.create(userDataObj);
   if (status) {
     req.session.user = userResponse;
     res.redirect("/");
