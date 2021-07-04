@@ -27,14 +27,12 @@ const Header = ({ userDetails }) => {
       </Nav>
       {userFirstName != null ? (
         <Nav>
-          <Nav.Link
-            href="/logout"
-            // onClick={logoutHandler}
-            className="text-white"
-          >
+          <Nav.Link href="/logout" id="logout" className="text-white">
             logout
           </Nav.Link>
-          <Nav.Link className="text-white">Hi, {userFirstName}</Nav.Link>
+          <Nav.Link className="text-white" id="username">
+            Hi, {userFirstName}
+          </Nav.Link>
         </Nav>
       ) : (
         <Nav>
