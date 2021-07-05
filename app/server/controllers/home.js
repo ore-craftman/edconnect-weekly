@@ -17,8 +17,4 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-// router.get("/projects/submit", (req, res) => {
-//   res.render("CreateProject");
-// });
-
 module.exports = router;
