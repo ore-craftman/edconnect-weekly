@@ -36,10 +36,10 @@ const Header = ({ userDetails }) => {
         </Nav>
       ) : (
         <Nav>
-          <Nav.Link href="signup" className="text-white">
+          <Nav.Link href="/signup" className="text-white">
             Sign Up
           </Nav.Link>
-          <Nav.Link href="login" className="text-white">
+          <Nav.Link href="/login" className="text-white">
             Login
           </Nav.Link>
         </Nav>
