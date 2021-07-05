@@ -47,11 +47,12 @@ router.get("/project/:id", (req, res) => {
   const projectData = projectService.getById(id);
   let fName = null;
   let lName = null;
-  if (projectData) {
-    const projectCreator = userService.getById(projectData.createdBy);
-    fName = projectCreator.firstname;
-    lName = projectCreator.lastname;
-  }
+  // console.log("Project Data", projectData);
+  // if (projectData) {
+  //   const projectCreator = userService.getById(projectData.createdBy);
+  //   fName = projectCreator.firstname;
+  //   lName = projectCreator.lastname;
+  // }
 
   res.render("Project", {
     projectData: projectData,
