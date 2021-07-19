@@ -24,7 +24,7 @@ UserSchema.methods.setPassword = function (password) {
       .pbkdf2Sync(password, this.salt, 1000, 64, "sha512")
       .toString("hex");
   } else {
-    throw "Password should have at least 7 characters";
+    throw new Error("Password should have at least 7 characters");
   }
 };
 
