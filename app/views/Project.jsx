@@ -20,11 +20,15 @@ const Project = ({ projectData, creatorsFirstName, creatorsLastName }) => {
               </section>
               <section className="col">
                 <li className="list-unstyled">Date Created</li>
-                <li className="list-unstyled">2019-04-23</li>
+                <li className="list-unstyled">
+                  {new Date(projectData.createdAt).toLocaleDateString()}
+                </li>
               </section>
               <section className="col">
                 <li className="list-unstyled">Last Updated</li>
-                <li className="list-unstyled">2019-04-23</li>
+                <li className="list-unstyled">
+                  {new Date(projectData.updatedAt).toLocaleDateString()}
+                </li>
               </section>
               <section className="col-auto">
                 <a

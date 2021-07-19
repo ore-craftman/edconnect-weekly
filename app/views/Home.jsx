@@ -29,26 +29,31 @@ const Home = ({ projects, userInstance }) => {
         <section>
           <div className="row showcase" id="project-cards-container">
             {projects &&
-              projects.map((project, index) => {
-                return (
-                  <div key={index} className="col-sm-3">
-                    <section className="card my-4">
-                      <div className="card-body">
-                        <a href={"/project/" + project.id}>
-                          <h4 className="text-primary card-title">
-                            {project.name}
-                          </h4>
-                        </a>
-                        <h6 className="card-subtitle">
-                          {project.authors.join(", ")}
-                        </h6>
-                        <p className="card-text">{project.abstract}</p>
-                        <p className="text-primary">{project.tags.join(" ")}</p>
-                      </div>
-                    </section>
-                  </div>
-                );
-              })}
+              projects
+                .reverse()
+                .slice(0, 4)
+                .map((project, index) => {
+                  return (
+                    <div key={index} className="col-sm-3">
+                      <section className="card my-4">
+                        <div className="card-body">
+                          <a href={"/project/" + project.id}>
+                            <h4 className="text-primary card-title">
+                              {project.name}
+                            </h4>
+                          </a>
+                          <h6 className="card-subtitle">
+                            {project.authors.join(", ")}
+                          </h6>
+                          <p className="card-text">{project.abstract}</p>
+                          <p className="text-primary">
+                            {project.tags.join(" ")}
+                          </p>
+                        </div>
+                      </section>
+                    </div>
+                  );
+                })}
           </div>
         </section>
       </>

@@ -18,7 +18,7 @@ router.get("/signup", (req, res) => {
   });
 });
 
-router.post("/signup", (req, res) => {
+router.post("/signup", async (req, res) => {
   let userDataObj = {
     firstname: req.body.firstName,
     lastname: req.body.lastName,
@@ -28,7 +28,7 @@ router.post("/signup", (req, res) => {
     program: req.body.program,
     graduationYear: req.body.graduationYear,
   };
-  const [status, userResponse] = userService.create(userDataObj);
+  const [status, userResponse] = await userService.create(userDataObj);
   if (status) {
     req.session.user = userResponse;
     res.redirect("/");
@@ -44,8 +44,8 @@ router.get("/login", (req, res) => {
   res.render("Login", { error: error, userInstance: user });
 });
 
-router.post("/login", (req, res) => {
-  const [status, userOrError] = userService.authenticate(
+router.post("/login", async (req, res) => {
+  const [status, userOrError] = await userService.authenticate(
     req.body.email,
     req.body.password
   );

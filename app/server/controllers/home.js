@@ -4,10 +4,11 @@ const projectService = require("../services/project");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   const user = req.session.user;
+  const projectData = await projectService.getAll();
   res.render("Home", {
-    projects: projectService.getAll().slice(0, 4),
+    projects: projectData,
     userInstance: user,
   });
 });

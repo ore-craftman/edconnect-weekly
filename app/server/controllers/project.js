@@ -13,8 +13,8 @@ router.get("/projects/submit", (req, res) => {
   }
 });
 
-router.post("/projects/submit", (req, res) => {
-  const creatorsId = req.session.user.id;
+router.post("/projects/submit", async (req, res) => {
+  const creatorsId = req.session.user._id;
   let authorsArr = [];
   let tagsArr = [];
 
@@ -34,7 +34,7 @@ router.post("/projects/submit", (req, res) => {
     createdBy: creatorsId,
   };
 
-  const [status, projectOrError] = projectService.create(projectDataObj);
+  const [status, projectOrError] = await projectService.create(projectDataObj);
 
   if (status) {
     res.redirect("/");
@@ -44,12 +44,12 @@ router.post("/projects/submit", (req, res) => {
   }
 });
 
-router.get("/project/:id", (req, res) => {
-  const projectData = projectService.getById(req.params.id);
+router.get("/project/:id", async (req, res) => {
+  const projectData = await projectService.getById(req.params.id);
   let fName = null;
   let lName = null;
   if (projectData.createdBy) {
-    const projectCreator = userService.getById(projectData.createdBy);
+    const projectCreator = await userService.getById(projectData.createdBy);
     fName = projectCreator.firstname;
     lName = projectCreator.lastname;
   }
